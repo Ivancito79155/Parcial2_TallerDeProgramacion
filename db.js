@@ -1,4 +1,4 @@
-const db = [
+const books = [
     {id:1,
     title:"El principito",
     author:"Antoine de Saint-Exupéry",
@@ -12,3 +12,5 @@ const db = [
     author:"Rick Riordan",
     year:"2005"}
 ]
+
+module.exports = books
