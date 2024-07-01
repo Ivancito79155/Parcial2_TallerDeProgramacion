@@ -29,6 +29,7 @@ app.get("/books/:id", (req, res) => {
 app.post("/books", (req, res) => {
   const id = new Date().getTime();
   const { title, author, year } = req.body;
+  if (typeof year === "string"){return res.status(400).send("Valor invalido.")}
   if (!title || !author || !year) {
     return res.status(400).send("Datos faltantes.");
   }
@@ -40,7 +41,7 @@ app.post("/books", (req, res) => {
     id: id,
     title: title,
     author: author,
-    year: year,
+    year: +year,
   });
   res.send("Se agrego con éxito el nuevo libro");
 });
@@ -68,7 +69,7 @@ app.put("/books/:id", (req, res) => {
   bookIndex.id = id;
   bookIndex.title = title;
   bookIndex.author = author;
-  bookIndex.year = year;
+  bookIndex.year = +year;
   res.send("Se editó la entrada con éxito");
 });
 
