@@ -39,8 +39,8 @@ app.post("/books", (req, res) => {
   }
   books.push({
     id: id,
-    title: title,
-    author: author,
+    title: title.trim(),
+    author: author.trim(),
     year: +year,
   });
   res.send("Se agrego con éxito el nuevo libro");
